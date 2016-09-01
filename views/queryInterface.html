@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Football Twitter Deck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  
+  <body>
+  <div class="tabs navbar-default">
+	  <div class="navbar-header">
+		  <div class="container">
+				<a class="navbar-brand" href="/"><i class="fa fa-twitter fa-lg"></i>Football TwitterDeck</a>
+		  </div>
+	  </div>
+	  <div class="tab">
+		<input type="radio" id="tab-1" name="tab-group-1" style="display: none; " checked>
+        <label for="tab-1" style="background: #eee; padding: 10px; border: 1px solid #ccc; margin-left: -1px; position: relative;left: 1px; ">Tweets</label>
+        
+		<div class="content">
+			<section id="main">
+				<div class="sideMenu">
+					<p class="lead">
+						Football Tweets<br>
+						Enter any field to get recent tweets.
+					</p>
+
+					<div class="alert alert-warning collapse" id="alert" role="alert"></div>  
+					<!--hashtag --> 
+					<div class="switch">Search all Tweet post by hashtags</div>
+				
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">&nbsp#&nbsp</span>
+						<input type="text" class="form-control input" placeholder="hashtag" id="hashtag" name="hashtag" aria-describedby="basic-addon1">
+					</div> <!--input-group -->  
+					<br/>
+					<!--author --> 
+					<div class="switch">
+						<input class="checkboxhash" type="checkbox" id="checkboxhash" value="checkboxhash">
+						<label for="checkboxhash">AND OR</label>
+					</div>
+					<br/>
+					<div class="switch">Search all Tweet post by user/author</div>
+					<div class="input-group"> 
+						<span class="input-group-addon" id="basic-addon1">&nbsp@</span>
+						<input type="text" class="form-control input" placeholder="authorname" id="authorname" name="authorname" aria-describedby="basic-addon1">
+					</div>
+					<br/>
+					<!--mentioned --> 
+					<div class="switch">
+						<input class="checkboxauthor" type="checkbox" id="checkboxauthor" value="checkboxauthor">
+						<label for="checkboxauthor">AND OR</label>
+					</div>
+					</br>	
+					<div class="switch">Search mentioned user in tweet</div>
+					<div class="input-group">  
+						<span class="input-group-addon" id="basic-addon1">&nbsp@</span>
+						<input type="text" class="form-control input" placeholder="mentioned" id="mentioned" name="mentioned" aria-describedby="basic-addon1">
+					</div>
+					<!--any words -->
+					<div class="subtitle">+</div>
+					<div class="switch">Add any keyword to the queries above</div>
+					<div class="input-group">  
+						<span class="input-group-addon" id="basic-addon1">&nbsp+&nbsp</span>
+						<input type="text" class="form-control input" placeholder="anyword" id="anyword" name="anyword" aria-describedby="basic-addon1">
+					</div>
+					<br>
+					<div class="switch">Result Type:</div>
+					<div class="switch">  
+						<form id="formType">
+	    					<input type="radio"  name="resultType" value="mixed" checked > Mixed
+	    					<input type="radio"  name="resultType" value="recent" > Recent
+	    					<input type="radio"  name="resultType" value="popular" > Popular
+	    					<br>
+	    					<input type="checkbox" id="cacheDB">Cache From DB
+    					</form>
+
+    				</div>	
+					<br>
+					<div class="input-group">    
+					   <span class="input-group-btn" >
+					   <form action="#">
+							<button type="submit" class="btn btn-search btn-theme" id="submitButton">Search</button>
+						</form>	
+					   </span>
+					</div> <!--input-group -->
+					<span class="help-block"></span>
+				</div>
+				<br>				  	
+			</section><!-- /section -->	
+
+			<section id="center">
+				<section id="geo">
+					<div class="headerBox">Tweet Geo Location</div>      
+					<div class="geocontainer panelBox" id="map-canvas"></div>        
+				</section>
+		
+				<section id="analysis">
+					<div class="headerBox">Top Words in Tweet</div>        
+					<div class="geocontainer panelBox" id="analysisBox">
+						<ol id="olAnalysis"></ol>  
+					</div><!--container-->
+				</section>
+		
+				<section id="toptweet">
+					<div class="headerBox">Top 10 Active User</div>    
+					<div class="geocontainer panelBox" id="authorBox">
+						<ol id="olAuthor"></ol>  
+					</div>
+				</section>
+
+				<section id="youtube">
+					<div class="headerBox">Youtube</div>    
+					<div class="geocontainer panelBox divYoutube" id="results">  
+					</div>
+				</section>	
+
+			</section>
+			
+			<section id="tweetsinfo">
+				<div class="headerBox">Tweets Source</div>    
+				<div class=" infocontainer panelBox" id="dbinfo-results">  
+				</div>
+			</section>
+			
+			<section id="tweets">
+				<div class="headerBox">Tweets Stream</div>
+				<div class="result" id="result"></div>        
+			</section>
+       </div>      
+   </div>
+    <!--team info-->
+    <div class="tab">
+       <input type="radio" id="tab-2" name="tab-group-1" style="display: none; ">
+       <label for="tab-2" style="background: #eee; padding: 10px; border: 1px solid #ccc; margin-left: -1px; position: relative;left: 1px; ">Journalist</label>
+		
+		<div class="content">
+			<section id="main">
+				<div class="sideMenuJournal" align="bottom">
+					<p class="lead">
+						Journalist Tools - DBpedia<br>	
+					</p>
+
+					<div class="alert alert-warning collapse" id="alert" role="alert"></div>  
+					<!--hashtag --> 
+					<div class="switch"></div>
+				
+					<div class="input-group">
+						<input type="text" class="form-control input-lg" placeholder="Team 1 Name" id="team1" name="Team 1" list="teamName">
+						<span class="input-group-btn">
+							<button class="btn btn-search btn-theme" type="button" onclick="getSparql('result1')">Go</button>
+						</span>	
+					</div> <!--input-group --> 
+
+					<br/>
+					<!--author --> 
+					<div class="input-group">
+						<input type="text" class="form-control input-lg" placeholder="Team 2 Name" id="team2" name="Team 2" list="teamName">
+						<span class="input-group-btn">
+							<button class="btn btn-search btn-theme" type="button" onclick="getSparql('result2')">Go</button>
+						</span>	
+					</div> <!--input-group -->  
+					<p id="list"></p>
+					<datalist id="teamName">						  
+					</datalist>
+					<br/>
+				</div>				  	
+			</section><!-- /section -->	
+
+			<section id="centerTools">	
+				<section id="teamData">
+					<div class="headerBox">Team 1 Info</div> 
+					<div class="journalcontainer" id="result1"> 
+					</div>
+				</section>
+				
+				<section id="teamData">
+					<div class="headerBox">Team 2 Info</div> 
+					<div class="journalcontainer" id="result2"> 
+					</div>
+				</section>
+			</section>   
+	<!--</div><!--container-->
+		</div>
+	</div><!--</div><!--tabs-->
+      
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP883MJFZCW09Pl9rN5LPH_-TBEDL-SvU&callback=initMap" async defer></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/youtube.js"></script>
+    <script src="/js/journalist.js"></script>
+    <script src="/js/soccerTeam.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/tweetBox.js"></script>
+    <script src="/js/textProcess.js"></script>
+    <script src="/js/geoLocation.js"></script>
+    <script src="/js/validation.js"></script>
+    
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+</html>

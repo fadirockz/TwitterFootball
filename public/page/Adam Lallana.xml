@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<playerinfo itemscope="item" itemtype='http://schema.org/Person'>
+	<player>
+		<name itemprop='name'>Adam Lallana</name>
+		<position itemprop='jobTitle'>Midfielder</position>
+		<jersey itemprop='alternateName'>20</jersey>
+		<birthplace itemprop='birthPlace'>none</birthplace>
+		<dob itemprop='birthDate'>1988-05-10</dob>
+		<description itemprop='description'>Adam David Lallana (born 10 May 1988) is an English professional footballer who plays as an attacking midfielder for Liverpool and the England national team.He began his youth career with Bournemouth before transferring to  Southampton in 2000, where he became a professional in 2006. After a brief loan back to Bournemouth he broke into Southampton's first team as they earned two promotions from League One to the Premier League, becoming captain in 2012. After two seasons in the top flight and an international breakthrough, he joined Liverpool for an undisclosed fee in July 2014.Lallana was given his senior international debut for England in 2013 and was selected for the 2014 FIFA World Cup.</description>
+	</player>
+</playerinfo>
